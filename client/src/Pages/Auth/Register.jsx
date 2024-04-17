@@ -11,25 +11,25 @@ const Register = () => {
     axios.post('/register',{name,email,password}).then(({data})=>{
       if(data.message=='email already exists'){
          return toast.error('email already exists',{
-          position: toast.POSITION.TOP_RIGHT
+          position: toast.POSITION.TOP_CENTER
         })
       }
       return toast.success('successfully registered',{
-        position: toast.POSITION.TOP_RIGHT
+        position: toast.POSITION.TOP_CENTER
       })
     })
   }
   return (
     <Master>
-       <div className='bg-card p-2 '>
+       <div className='bg-card p-2 rounded' style={{width:'600px',margin:'auto'}}>
        <h2 className='text-white text-center' >Register</h2>
        
-       <div className="form-group ">
-            <label htmlFor="name" className='text-white'>Name</label>
+       <div className="form-group m-4 ">
+            <label htmlFor="name" >Name</label>
             <input type="text"  id="name"  className='form-control ' onChange={e=>setName(e.target.value)} required/>
-            <label htmlFor="email" className='text-white'>Email</label>
+            <label htmlFor="email" >Email</label>
             <input type="email"  id="email"  className='form-control' onChange={e=>setEmail(e.target.value)} required/>
-            <label htmlFor="password" className='text-white'>Password</label>
+            <label htmlFor="password" >Password</label>
             <input type="password"  id="password"  className='form-control' onChange={e=>setPassword(e.target.value)} required/>
             <div className='text-center pt-3'> 
               <button className='btn-primary px-3 py-2 rounded' onClick={register}>register</button>

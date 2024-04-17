@@ -16,6 +16,11 @@ const Login = () => {
       axios.post('/login',{email,password}).then(({data})=>{
         console.log(data.message);
         setLoader(false)
+        if(data.message=='fill'){
+          return toast.error('Please fill out all fields',{
+            position: toast.POSITION.TOP_CENTER
+          })
+        }
         if(data.message=='invalid email'){
           return toast.error('invalid email',{
             position: toast.POSITION.TOP_CENTER
@@ -23,12 +28,14 @@ const Login = () => {
         }
         if(data.message=='incorrect password'){
           return toast.error('wrong password',{
-            position: toast.POSITION.TOP_RIGHT,
+            position: toast.POSITION.TOP_CENTER,
           })
         }
         setAuthUser(data.data)
         navigate('/')
-        return toast.success('Welcome '+ data.data.name)
+        return toast.success('Welcome '+ data.data.name,{
+          position: toast.POSITION.TOP_CENTER,
+        })
 
     })
   }
@@ -39,11 +46,11 @@ const Login = () => {
        <h2 className='text-white text-center' >Login</h2>
       
       
-      <div className="form-group">
+      <div className="form-group m-4">
               <label htmlFor="email" >Email</label>
               <input type="text" id='email' className='form-control' onChange={e=>setEmail(e.target.value)} required/>
             </div>
-            <div className="form-group">
+            <div className="form-group m-4">
               <label htmlFor="password">Password</label>
               <input type="password" id='password' className='form-control' onChange={e=>setPassword(e.target.value)} required/>
             </div>
