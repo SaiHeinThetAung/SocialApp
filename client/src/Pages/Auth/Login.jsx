@@ -2,7 +2,7 @@ import React, {  useContext, useState } from 'react'
 import Master from '../Master'
 import {  toast } from 'react-toastify';
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import AuthContext from '../../Context/AuthContext';
 
 const Login = () => {
@@ -11,6 +11,15 @@ const Login = () => {
   const [loader,setLoader]=useState(false)
   const {setAuthUser}=useContext(AuthContext)
   const navigate=useNavigate()
+  const logout=()=>{
+    axios.post('/logout').then(data=>{
+      if(data.data=='success'){
+        setAuthUser(false)
+        navigate('/login')
+        
+      }
+    })
+  }
   const login=()=>{
       setLoader(true)
       axios.post('/login',{email,password}).then(({data})=>{
@@ -32,12 +41,28 @@ const Login = () => {
           })
         }
         setAuthUser(data.data)
+        let isLoggedIn = true; // Flag to track login status
+
+// Function to simulate user logout
+function exp() {
+  isLoggedIn = false;
+  <div >
+    <span >{toast.error('login expired')}</span>
+  </div>
+setTimeout(logout, 1200);
+  
+}
+// Set a timeout to logout after 10 seconds
+setTimeout(exp, 10000);
         navigate('/')
         return toast.success('Welcome '+ data.data.name,{
           position: toast.POSITION.TOP_CENTER,
         })
+          })
+  
+       
 
-    })
+    
   }
 
   return (
