@@ -38,13 +38,13 @@ export const Profile = () => {
       formData.append('tags',JSON.stringify(selectedTag))
       formData.append('languages',JSON.stringify(selectedLanguage))
       formData.append('description',description)
-      axios.post('/auth/article',formData).then((d)=>{
-        
-        if(d.data=='success'){
-          return toast.success('article created')
+      axios.post("/auth/article", formData).then((d) => {
+        if (d.data == "success") {
+          toast.success("Article Created");
+          return;
         }
-         return toast.error('worng')
-      })
+        toast.error("Wrong Something");
+      });
     }
   return (
     
