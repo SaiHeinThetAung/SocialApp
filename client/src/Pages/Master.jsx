@@ -1,46 +1,32 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { AuthComponent } from './AuthComponent'
 
 const Master = (props) => {
   return (
    
-         <div className="m-5 ">
-  <div className="row">
-    <div className="col-9">
+         <div className="mt-2 ">
+  <div className="row" >
+    <div className="col-9" style={{position:"sticky",top:0,left:0}}>
       <h2 className="text-primary bg-card p-2 pl-5 ms-5 rounded">
-        Community Blogging App  -{" "}
-        <span className="text-success">MM</span>
+        Blogging Beyond Border  -{" "}
+        <span className="text-success">UTYCC</span>
       </h2>
       {props.children}
       {/* first blog */}
       </div>
-      <div className="col-3">
-      <div className="bg-card p-3">
-     
-      <Link to={'/login'}>
-       <span className="btn btn-primary m-2">
-          Login
-        </span>
-       </Link>
-       <Link to={'/register'}>
-       <span href="" className="btn btn-primary">
-          Register
-        </span>
-       </Link>
-      </div>
-      <div className="bg-card p-3 mt-4">
+      <div className="col-3 " style={{position:"fixed",top:0,right:0}} >
+        <AuthComponent/>
+      <div className="bg-card p-2 mt-2">
         <h5 className="text-primary">Tags</h5>
         <span className="btn btn-sm btn-dark mt-1">နည်းလမ်းများ </span>
         <span className="btn btn-sm btn-dark mt-1">Tutorial </span>
-        <span className="btn btn-sm btn-dark mt-1">Tips </span>
         <span className="btn btn-sm btn-dark mt-1">Summernote </span>
         <span className="btn btn-sm btn-dark mt-1">Tricks </span>
-        <span className="btn btn-sm btn-dark mt-1">web dev </span>
         <span className="btn btn-sm btn-dark mt-1">web design </span>
         <span className="btn btn-sm btn-dark mt-1">blogs </span>
         <span className="btn btn-sm btn-dark mt-1">articles </span>
       </div>
-      <div className="bg-card p-3 mt-4">
+      {/* <div className="bg-card p-3 mt-4">
         <h5 className="text-primary">Programming</h5>
         <span className="btn btn-sm btn-dark mt-1">PHP </span>
         <span className="btn btn-sm btn-dark mt-1">Laravel </span>
@@ -51,7 +37,7 @@ const Master = (props) => {
         <span className="btn btn-sm btn-dark mt-1">web design </span>
         <span className="btn btn-sm btn-dark mt-1">blogs </span>
         <span className="btn btn-sm btn-dark mt-1">articles </span>
-      </div>
+      </div> */}
       <div className="bg-card p-3 mt-4">
         <h5 className="text-primary"> Top Trending Articles</h5>
         <div className="row">
@@ -93,7 +79,7 @@ const Master = (props) => {
           </div>
         </div>
       </div>
-      <div className="bg-card p-3 mt-4">
+      {/* <div className="bg-card p-3 mt-4">
         <h5 className="text-primary"> Most Love Articles</h5>
         <div className="row">
           <div className="col-6">
@@ -133,7 +119,7 @@ const Master = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   </div>
     </div>
